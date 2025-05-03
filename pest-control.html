@@ -3,63 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pest Control Strategies |  Agro-web</title>
+    <title>Pest Control Strategies | Agro-web</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-     <!-- Header -->
-<header class="bg-[#328E6E] text-white">
-  <nav class="container mx-auto py-5 px-4 flex justify-between items-center">
-    <!-- Logo -->
-    <a href="/" class="text-3xl font-bold">Agro-web</a>
+    <header class="bg-[#328E6E] text-white">
+      <nav
+        class="container mx-auto py-5 px-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="text-3xl font-bold">Agro-web</a>
 
-    <!-- Desktop Nav -->
-    <ul class="hidden md:flex items-center gap-8 font-medium">
-      <li><a href="/" class="hover:text-gray-200">Home</a></li>
-      <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
-      <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
-      <li><a href="/pest-control.html" class="hover:text-gray-200">Pest Control</a></li>
-      <li><a href="/contact.html" class="hover:text-gray-200">Contact</a></li>
-    </ul>
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-8 font-medium">
+          <li><a href="/" class="hover:text-gray-200">Home</a></li>
+          <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
+          <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
+          <li>
+            <a href="/pest-control.html" class="hover:text-gray-200"
+              >Pest Control</a
+            >
+          </li>
+          <li>
+            <a href="/contact.html" class="hover:text-gray-200">Contact</a>
+          </li>
+        </ul>
 
-    <!-- Hamburger Button -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-           xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </nav>
+        <!-- Hamburger Button -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </nav>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-menu"
-       class="md:hidden bg-[#328E6E] px-4 py-2 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-    <ul class="flex flex-col gap-3 font-medium">
-      <li><a href="/" class="mobile-link hover:text-gray-200">Home</a></li>
-      <li><a href="/guide.html" class="mobile-link hover:text-gray-200">Guide</a></li>
-      <li><a href="/crops.html" class="mobile-link hover:text-gray-200">Crops</a></li>
-      <li><a href="/pest-control.html" class="mobile-link hover:text-gray-200">Pest Control</a></li>
-      <li><a href="/contact.html" class="mobile-link hover:text-gray-200">Contact</a></li>
-    </ul>
-  </div>
-</header>
+      <!-- Mobile Nav -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-[#328E6E] px-4 py-2 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <ul class="flex flex-col gap-3 font-medium">
+          <li><a href="/" class="mobile-link hover:text-gray-200">Home</a></li>
+          <li>
+            <a href="/guide.html" class="mobile-link hover:text-gray-200"
+              >Guide</a
+            >
+          </li>
+          <li>
+            <a href="/crops.html" class="mobile-link hover:text-gray-200"
+              >Crops</a
+            >
+          </li>
+          <li>
+            <a href="/pest-control.html" class="mobile-link hover:text-gray-200"
+              >Pest Control</a
+            >
+          </li>
+          <li>
+            <a href="/contact.html" class="mobile-link hover:text-gray-200"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.getElementById("menu-toggle");
         const mobileMenu = document.getElementById("mobile-menu");
         const links = document.querySelectorAll(".mobile-link");
-    
+
         let isOpen = false;
-    
+
         menuToggle.addEventListener("click", () => {
           isOpen = !isOpen;
-          mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + "px" : "0px";
+          mobileMenu.style.maxHeight = isOpen
+            ? mobileMenu.scrollHeight + "px"
+            : "0px";
         });
-    
-        links.forEach(link => {
+
+        links.forEach((link) => {
           link.addEventListener("click", () => {
             isOpen = false;
             mobileMenu.style.maxHeight = "0px";
@@ -68,21 +105,32 @@
       });
     </script>
 
-    <section class="relative h-[70vh] flex items-center justify-center text-center text-white">
-      <img src="./assests/fam.jpg" 
-           alt="Crop field background" 
-           class="absolute inset-0 w-full h-full object-cover opacity-70 z-[-1]" />
+    <!-- Hero Section -->
+    <section
+      class="relative h-[70vh] flex items-center justify-center text-center text-white"
+    >
+      <img
+        src="./assests/fam.jpg"
+        alt="Crop field background"
+        class="absolute inset-0 w-full h-full object-cover opacity-70 z-[-1]"
+      />
       <div class="bg-black/50 p-8 rounded shadow-md backdrop-blur-sm">
-        <h1 class="text-5xl font-extrabold mb-4 text-green-600">Explore Pest Control Strategies</h1>
+        <h1 class="text-5xl font-extrabold mb-4 text-green-600">
+          Explore Pest Control Strategies
+        </h1>
         <p class="text-lg max-w-2xl mx-auto">
-          Learn how to identify, prevent, and manage common crop pests using sustainable and effective pest control methods — including biological, organic, and integrated approaches.
+          Learn how to identify, prevent, and manage common crop pests using
+          sustainable and effective pest control methods — including biological,
+          organic, and integrated approaches.
         </p>
       </div>
     </section>
 
+    <!-- Pest Control Strategies Section -->
     <main class="container mx-auto py-16 px-4">
-     
- 
+      <h2 class="text-3xl font-bold text-[#328E6E] text-center mb-8">
+        Top Pest Control Strategies
+      </h2>
 
       <div class="grid md:grid-cols-2 gap-10">
         <!-- Strategy 1 -->
@@ -97,7 +145,9 @@
           </h3>
           <p>
             IPM combines biological, cultural, mechanical, and chemical tools in
-            a way that minimizes risks to health and the environment.
+            a way that minimizes risks to health and the environment. This
+            approach also considers the long-term control of pests and works
+            towards minimizing the use of harmful pesticides.
           </p>
         </div>
 
@@ -110,8 +160,10 @@
           />
           <h3 class="text-xl font-semibold mb-4">2. Biological Control</h3>
           <p>
-            Use of natural predators like ladybugs or parasitic wasps to manage
-            harmful insect populations.
+            Use natural predators like ladybugs or parasitic wasps to manage
+            harmful insect populations. Biological control is an eco-friendly
+            way to maintain pest balance in your fields without relying on
+            synthetic chemicals.
           </p>
         </div>
 
@@ -125,10 +177,13 @@
           <h3 class="text-xl font-semibold mb-4">3. Organic Pesticides</h3>
           <p>
             Utilize environmentally friendly pesticides derived from natural
-            sources like neem oil, garlic spray, or pyrethrin.
+            sources like neem oil, garlic spray, or pyrethrin. These
+            alternatives are less harmful to the environment and safe for
+            beneficial insects.
           </p>
         </div>
 
+        <!-- Strategy 4 -->
         <div class="bg-white p-6 rounded-lg shadow">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAEnTO2giI-5W2snyCqaV9n3iz5pekigx0mA&s"
@@ -138,18 +193,107 @@
           <h3 class="text-xl font-semibold mb-4">4. Crop Rotation</h3>
           <p>
             Changing crop types seasonally to prevent pest adaptation and reduce
-            pest population buildup.
+            pest population buildup. Crop rotation is a sustainable way to
+            control pests and improve soil health over time.
           </p>
         </div>
       </div>
+
+      <!-- Tips & Best Practices Section -->
+      <section class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-semibold text-[#328E6E] mb-8">
+            Pest Control Tips & Best Practices
+          </h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Here are some tips to effectively control and prevent pests in your
+            crops:
+          </p>
+          <ul class="list-disc space-y-3 text-left text-gray-700 px-6">
+            <li>
+              <strong>Regular Monitoring:</strong> Check your crops frequently
+              for signs of pests and diseases. Early detection is key to
+              controlling infestations.
+            </li>
+            <li>
+              <strong>Maintain Cleanliness:</strong> Remove crop debris and
+              weeds, which can harbor pests and diseases.
+            </li>
+            <li>
+              <strong>Encourage Beneficial Insects:</strong> Planting flowers
+              like marigolds and sunflowers can attract pollinators and
+              pest-eating insects.
+            </li>
+            <li>
+              <strong>Use Pest-Resistant Varieties:</strong> Choose crop
+              varieties that are naturally resistant to common pests in your
+              area.
+            </li>
+            <li>
+              <strong>Proper Irrigation:</strong> Over-watering or
+              under-watering can stress plants and make them more susceptible to
+              pests.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Common Pest Diseases Section -->
+      <section class="py-16">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-semibold text-[#328E6E] mb-8">
+            Common Pest Diseases and How to Control Them
+          </h2>
+          <p class="text-lg text-gray-700 mb-6">
+            Diseases caused by pests can significantly affect crop yield. Here's
+            how to identify and manage them:
+          </p>
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Disease 1 -->
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-4 text-[#328E6E]">
+                1. Aphid Infestation
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Aphids are small, soft-bodied insects that feed on plant sap and
+                can spread diseases. They can be controlled using insecticidal
+                soap or introducing natural predators like ladybugs.
+              </p>
+            </div>
+
+            <!-- Disease 2 -->
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-4 text-[#328E6E]">
+                2. Leaf Spot Disease
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Leaf spot is caused by fungi and leads to brown or yellow spots
+                on plant leaves. Proper spacing and good air circulation around
+                plants can help reduce its spread.
+              </p>
+            </div>
+
+            <!-- Disease 3 -->
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-4 text-[#328E6E]">
+                3. Whiteflies
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Whiteflies suck plant sap, which weakens the plant and can
+                spread viruses. Control them by using insect traps, or natural
+                predators like spiders and predatory beetles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#328E6E] text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2025 AgroTech. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
-  <footer class="bg-[#328E6E] text-white py-4">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2025 AgroTech. All rights reserved.</p>
-    </div>
-  </footer>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<script src="index.js"></script>
 </html>

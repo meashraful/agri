@@ -10,9 +10,7 @@
     <main>
       <!-- Header -->
       <header class="bg-[#328E6E] text-white">
-        <nav
-          class="container mx-auto py-5 px-4 flex justify-between items-center"
-        >
+        <nav class="container mx-auto py-5 px-4 flex justify-between items-center">
           <!-- Logo -->
           <a href="/" class="text-3xl font-bold">Agro-web</a>
 
@@ -21,14 +19,8 @@
             <li><a href="/" class="hover:text-gray-200">Home</a></li>
             <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
             <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
-            <li>
-              <a href="/pest-control.html" class="hover:text-gray-200"
-                >Pest Control</a
-              >
-            </li>
-            <li>
-              <a href="/contact.html" class="hover:text-gray-200">Contact</a>
-            </li>
+            <li><a href="/pest-control.html" class="hover:text-gray-200">Pest Control</a></li>
+            <li><a href="/contact.html" class="hover:text-gray-200">Contact</a></li>
           </ul>
 
           <!-- Hamburger Button -->
@@ -52,9 +44,7 @@
       </header>
 
       <!-- Hero Section -->
-      <section
-        class="relative h-[70vh] flex items-center justify-center text-center text-white"
-      >
+      <section class="relative h-[70vh] flex items-center justify-center text-center text-white">
         <img
           src="./assests/crops.jpg"
           alt="Crop field background"
@@ -112,65 +102,49 @@
     </footer>
 
     <script>
-      // Sample crop data
+      // Sample crop data with detailed information
       const cropData = [
         {
           name: "Rice",
           image:
             "https://i.unu.edu/media/ourworld.unu.edu-en/article/5379/SRI-hybrid-rice-field.jpg",
+          varieties: ["Indica", "Japonica", "Hybrid"],
+          sowingTime: "April to May",
+          irrigation: "Flooded fields, 2-3 months",
+          expectedYield: "4-6 tons per hectare",
+          pestManagement: "Use of chemical pesticides, biological agents like fish, and proper water management."
         },
         {
           name: "Wheat",
           image:
             "https://5.imimg.com/data5/XB/JF/MY-38700875/wheat-bulk-supply.jpg",
+          varieties: ["Hard Red Winter", "Soft Red Winter", "Durum"],
+          sowingTime: "September to October",
+          irrigation: "Minimal irrigation, rain-fed",
+          expectedYield: "3-5 tons per hectare",
+          pestManagement: "Use of fungicides, crop rotation, and resistant varieties."
         },
         {
           name: "Maize",
           image:
             "https://www.mccormick.it/wp-content/uploads/2020/05/dati-aggiornati-sulla-produzione-di-mais-nel-mondo.jpg",
+          varieties: ["Yellow", "White", "Sweet Corn"],
+          sowingTime: "April to May",
+          irrigation: "Drip irrigation, 3-4 months",
+          expectedYield: "7-10 tons per hectare",
+          pestManagement: "Integrated pest management (IPM) using natural predators and resistant varieties."
         },
         {
           name: "Soybean",
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAV4aDDZhYH6o03M_bB8LO84Q8N9nMtv00Ag&s",
+          varieties: ["Early Group", "Mid Group", "Late Group"],
+          sowingTime: "April to May",
+          irrigation: "Rain-fed or supplemental irrigation",
+          expectedYield: "2-3 tons per hectare",
+          pestManagement: "Biological control, chemical sprays, crop rotation."
         },
-        {
-          name: "Sugarcane",
-          image:
-            "https://static.wixstatic.com/media/6e2303_4f8371354e4841ea9b2e392c0ff76c4e~mv2.webp/v1/fill/w_568,h_366,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6e2303_4f8371354e4841ea9b2e392c0ff76c4e~mv2.webp",
-        },
-        {
-          name: "Cotton",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Gt5QUI-HN-PsyHjxS997pZ8V0eQX71UZfQ&s",
-        },
-        {
-          name: "Potato",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIIoCexBs7pGA8e0JQnaE0foh1emnFead--A&s",
-        },
-        {
-          name: "Tomato",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4t2GRCI-vxm730F6OC76aQIhTeoEVnGLYOQ&s",
-        },
-        {
-          name: "Peanut",
-          image:
-            "https://www.ofi.com/content/dam/olamofi/products-and-ingredients/nuts/nuts-images-webp/peanuts.webp",
-        },
-        {
-          name: "Barley",
-          image: "./assests/barley.webp",
-        },
-        {
-          name: "Oats",
-          image: "./assests/oats.jpg",
-        },
-        {
-          name: "Chili",
-          image: "./assests/chili.jpg",
-        },
+        // Add more crops with details...
       ];
 
       function renderCrops(crops) {
@@ -198,6 +172,13 @@
               <img src="${crop.image}" class="rounded mb-4 w-full h-48 object-cover" alt="${crop.name}" />
               <h3 class="text-xl font-semibold text-[#328E6E] mb-2">${crop.name}</h3>
               <p class="text-gray-700">Learn how to cultivate ${crop.name} for optimal yield.</p>
+              <div class="mt-4">
+                <p><strong>Varieties:</strong> ${crop.varieties.join(", ")}</p>
+                <p><strong>Sowing Time:</strong> ${crop.sowingTime}</p>
+                <p><strong>Irrigation:</strong> ${crop.irrigation}</p>
+                <p><strong>Expected Yield:</strong> ${crop.expectedYield}</p>
+                <p><strong>Pest Management:</strong> ${crop.pestManagement}</p>
+              </div>
             `;
             cropList.appendChild(cropCard);
           });
