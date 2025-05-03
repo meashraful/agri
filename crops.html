@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Crop Details | Agro-web</title>
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <header class="bg-[#328E6E] text-white">
+        <nav
+          class="container mx-auto py-5 px-4 flex justify-between items-center"
+        >
+          <!-- Logo -->
+          <a href="/" class="text-3xl font-bold">Agro-web</a>
+
+          <!-- Desktop Nav -->
+          <ul class="hidden md:flex items-center gap-8 font-medium">
+            <li><a href="/" class="hover:text-gray-200">Home</a></li>
+            <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
+            <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
+            <li>
+              <a href="/pest-control.html" class="hover:text-gray-200"
+                >Pest Control</a
+              >
+            </li>
+            <li>
+              <a href="/contact.html" class="hover:text-gray-200">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Hamburger Button -->
+          <button id="menu-toggle" class="md:hidden focus:outline-none">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        class="relative h-[70vh] flex items-center justify-center text-center text-white"
+      >
+        <img
+          src="./assests/crops.jpg"
+          alt="Crop field background"
+          class="absolute inset-0 w-full h-full object-cover opacity-70 z-[-1]"
+        />
+        <div class="bg-black/50 p-8 rounded shadow-md backdrop-blur-sm">
+          <h1 class="text-5xl font-extrabold mb-4 text-green-600">
+            Explore Crop Details
+          </h1>
+          <p class="text-lg max-w-2xl mx-auto">
+            Discover essential information about crop varieties, sowing times,
+            irrigation, pest management, and expected yields.
+          </p>
+        </div>
+      </section>
+
+      <!-- Search Section -->
+      <section class="py-8 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+          <input
+            type="text"
+            id="search-input"
+            class="w-full p-4 text-lg border rounded-lg"
+            placeholder="Search for crops..."
+            onkeyup="searchCrops()"
+          />
+        </div>
+      </section>
+
+      <!-- Crop List Section -->
+      <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <div
+            id="crop-list"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Crop items will be added here dynamically -->
+          </div>
+          <!-- No results message -->
+          <div
+            id="no-results-message"
+            class="text-center text-xl text-red-500 hidden"
+          >
+            No matching crops found.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#328E6E] text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2025 Agro-web. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Sample crop data
+      const cropData = [
+        {
+          name: "Rice",
+          image:
+            "https://i.unu.edu/media/ourworld.unu.edu-en/article/5379/SRI-hybrid-rice-field.jpg",
+        },
+        {
+          name: "Wheat",
+          image:
+            "https://5.imimg.com/data5/XB/JF/MY-38700875/wheat-bulk-supply.jpg",
+        },
+        {
+          name: "Maize",
+          image:
+            "https://www.mccormick.it/wp-content/uploads/2020/05/dati-aggiornati-sulla-produzione-di-mais-nel-mondo.jpg",
+        },
+        {
+          name: "Soybean",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAV4aDDZhYH6o03M_bB8LO84Q8N9nMtv00Ag&s",
+        },
+        {
+          name: "Sugarcane",
+          image:
+            "https://static.wixstatic.com/media/6e2303_4f8371354e4841ea9b2e392c0ff76c4e~mv2.webp/v1/fill/w_568,h_366,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6e2303_4f8371354e4841ea9b2e392c0ff76c4e~mv2.webp",
+        },
+        {
+          name: "Cotton",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Gt5QUI-HN-PsyHjxS997pZ8V0eQX71UZfQ&s",
+        },
+        {
+          name: "Potato",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIIoCexBs7pGA8e0JQnaE0foh1emnFead--A&s",
+        },
+        {
+          name: "Tomato",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4t2GRCI-vxm730F6OC76aQIhTeoEVnGLYOQ&s",
+        },
+        {
+          name: "Peanut",
+          image:
+            "https://www.ofi.com/content/dam/olamofi/products-and-ingredients/nuts/nuts-images-webp/peanuts.webp",
+        },
+        {
+          name: "Barley",
+          image: "./assests/barley.webp",
+        },
+        {
+          name: "Oats",
+          image: "./assests/oats.jpg",
+        },
+        {
+          name: "Chili",
+          image: "./assests/chili.jpg",
+        },
+      ];
+
+      function renderCrops(crops) {
+        const cropList = document.getElementById("crop-list");
+        const noResultsMessage = document.getElementById("no-results-message");
+
+        cropList.innerHTML = ""; // Clear previous crops
+
+        if (crops.length === 0) {
+          noResultsMessage.classList.remove("hidden"); // Show no results message
+        } else {
+          noResultsMessage.classList.add("hidden"); // Hide no results message
+          crops.forEach((crop) => {
+            const cropCard = document.createElement("div");
+            cropCard.classList.add(
+              "crop-item",
+              "bg-gray-50",
+              "p-6",
+              "rounded-lg",
+              "shadow",
+              "hover:shadow-lg",
+              "transition"
+            );
+            cropCard.innerHTML = `
+              <img src="${crop.image}" class="rounded mb-4 w-full h-48 object-cover" alt="${crop.name}" />
+              <h3 class="text-xl font-semibold text-[#328E6E] mb-2">${crop.name}</h3>
+              <p class="text-gray-700">Learn how to cultivate ${crop.name} for optimal yield.</p>
+            `;
+            cropList.appendChild(cropCard);
+          });
+        }
+      }
+
+      // Initial render
+      renderCrops(cropData);
+
+      // Search functionality
+      function searchCrops() {
+        const searchInput = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const filteredCrops = cropData.filter((crop) =>
+          crop.name.toLowerCase().includes(searchInput)
+        );
+
+        renderCrops(filteredCrops);
+      }
+
+      // Adding event listener for search bar
+      document
+        .getElementById("search-input")
+        .addEventListener("keyup", searchCrops);
+    </script>
+  </body>
+</html>

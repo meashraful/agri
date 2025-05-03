@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farming Guides | Agro-web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <header class="bg-[#328E6E] text-white">
+      <nav class="container mx-auto py-5 px-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="text-3xl font-bold">Agro-web</a>
+    
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-8 font-medium">
+          <li><a href="/" class="hover:text-gray-200">Home</a></li>
+          <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
+          <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
+          <li><a href="/pest-control.html" class="hover:text-gray-200">Pest Control</a></li>
+          <li><a href="/contact.html" class="hover:text-gray-200">Contact</a></li>
+        </ul>
+    
+        <!-- Hamburger Button -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+    
+      <!-- Mobile Nav -->
+      <div id="mobile-menu"
+           class="md:hidden bg-[#328E6E] px-4 py-2 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <ul class="flex flex-col gap-3 font-medium">
+          <li><a href="/" class="mobile-link hover:text-gray-200">Home</a></li>
+          <li><a href="/guide.html" class="mobile-link hover:text-gray-200">Guide</a></li>
+          <li><a href="/crops.html" class="mobile-link hover:text-gray-200">Crops</a></li>
+          <li><a href="/pest-control.html" class="mobile-link hover:text-gray-200">Pest Control</a></li>
+          <li><a href="/contact.html" class="mobile-link hover:text-gray-200">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menu-toggle");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const links = document.querySelectorAll(".mobile-link");
+        
+            let isOpen = false;
+        
+            menuToggle.addEventListener("click", () => {
+              isOpen = !isOpen;
+              mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + "px" : "0px";
+            });
+        
+            links.forEach(link => {
+              link.addEventListener("click", () => {
+                isOpen = false;
+                mobileMenu.style.maxHeight = "0px";
+              });
+            });
+          });
+        </script>
+
+    <main>
+      <section class="relative h-[70vh] flex items-center justify-center text-center text-white">
+        <img src="./assests/farm.jpg" 
+             alt="Crop field background" 
+             class="absolute inset-0 w-full h-full object-cover opacity-70 z-[-1]" />
+        <div class="bg-black/50 p-8 rounded backdrop-blur-sm shadow-md">
+          <h1 class="text-5xl font-extrabold text-green-600 mb-6">Cultivation Guide</h1>
+    <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-12">
+      This comprehensive guide is tailored to help farmers and growers make informed decisions throughout the agricultural cycle — from soil preparation and seed selection to irrigation, pest control, and harvesting. 
+    </p>
+        </div>
+      </section>
+      <!-- Hero Section -->
+      <section class="relative text-white py-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+          
+          
+          <!-- Video -->
+          <div
+            class="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto aspect-video"
+          >
+            <iframe
+              src="https://www.youtube.com/embed/aDF3Khvhlpg"
+              frameborder="0"
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <!-- Guide Introduction -->
+      <section class="py-16 px-6 bg-[#328E6E] text-white">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-semibold mb-4">
+            Your Farming Knowledge Hub
+          </h2>
+          <p class="text-lg">
+            Learn best practices for sustainable and productive farming. Our
+            step-by-step tutorials help you grow better crops, use resources
+            wisely, and implement modern agricultural methods effectively.
+          </p>
+        </div>
+      </section>
+
+      <!-- Categorized Section -->
+      <section class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-[#328E6E] mb-10">
+            Browse by Category
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div
+              onclick="toggleModal(true)"
+              class="cursor-pointer bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <img
+                src="https://eos.com/wp-content/uploads/2020/09/1_1920%D1%85600-e1670509527732.jpg.webp"
+                class="w-full h-40 object-cover rounded mb-4"
+                alt="Crop Guide"
+              />
+              <h3 class="font-semibold text-xl mb-2 text-[#328E6E]">
+                By Crop Type
+              </h3>
+              <p class="text-gray-600">
+                Guides specific to crops like wheat, rice, maize, and
+                vegetables.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+              onclick="toggleModal2(true)"
+            >
+              <img
+                src="https://kaybeebio.com/wp-content/uploads/2023/08/Crop-Rotation.webp"
+                class="w-full h-40 object-cover rounded mb-4"
+                alt="Seasonal Farming"
+              />
+              <h3 class="font-semibold text-xl mb-2 text-[#328E6E]">
+                By Season
+              </h3>
+              <p class="text-gray-600">
+                Seasonal guides for Kharif, Rabi, and Zaid crops with
+                timeline-based tips.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+              onclick="toggleModal3(true)"
+            >
+              <img
+                src="https://i0.wp.com/digitalagrifarm.com/wp-content/uploads/2023/11/Types-of-farming-systems.jpg"
+                class="w-full h-40 object-cover rounded mb-4"
+                alt="Farming Methods"
+              />
+              <h3 class="font-semibold text-xl mb-2 text-[#328E6E]">
+                By Method
+              </h3>
+              <p class="text-gray-600">
+                Techniques such as organic, vertical, hydroponic, and precision
+                farming.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Guides Section -->
+      <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-[#328E6E] mb-12">
+            Step-by-Step Farming Tutorials
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Guide 1 -->
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <img
+                src="https://www.shutterstock.com/shutterstock/videos/3476329621/thumb/1.jpg?ip=x480"
+                class="rounded mb-4 w-full h-48 object-cover"
+                alt="Guide"
+              />
+              <h3 class="text-xl font-semibold text-[#328E6E] mb-2">
+                Rice Plantation Guide
+              </h3>
+              <p class="text-gray-700">
+                Learn how to prepare soil, choose seeds, water efficiently, and
+                manage pests.
+              </p>
+            </div>
+            <!-- Guide 2 -->
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILXjbzJ8QnLN3KLL77pIICgeDzHr5Sk0Cpg&s"
+                class="rounded mb-4 w-full h-48 object-cover"
+                alt="Guide"
+              />
+              <h3 class="text-xl font-semibold text-[#328E6E] mb-2">
+                Organic Vegetable Farming
+              </h3>
+              <p class="text-gray-700">
+                Step-by-step guide to growing pesticide-free vegetables using
+                organic inputs.
+              </p>
+            </div>
+            <!-- Guide 3 -->
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJzQEudhZw0uw-SwsXaTpVme8D1nubRBbi7g&s"
+                class="rounded mb-4 w-full h-48 object-cover"
+                alt="Guide"
+              />
+              <h3 class="text-xl font-semibold text-[#328E6E] mb-2">
+                Drip Irrigation Setup
+              </h3>
+              <p class="text-gray-700">
+                Understand how to install drip systems for water conservation
+                and crop health.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Crop Type Modal -->
+    <div
+      id="cropTypeModal"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white w-full max-w-xl p-6 rounded-lg shadow-lg relative">
+        <button
+          onclick="toggleModal(false)"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+        >
+          &times;
+        </button>
+        <h3 class="text-2xl font-semibold text-[#328E6E] mb-4">
+          Farming Guides by Crop Type
+        </h3>
+        <ul class="space-y-3 text-gray-700 list-disc pl-6">
+          <li>
+            <strong>Wheat Farming:</strong> From seed selection to harvest.
+          </li>
+          <li>
+            <strong>Rice Cultivation:</strong> Tips for water management and
+            pest control.
+          </li>
+          <li>
+            <strong>Maize Production:</strong> Soil preparation and yield
+            optimization.
+          </li>
+          <li>
+            <strong>Vegetable Farming:</strong> Seasonal planting tips and care.
+          </li>
+          <li>
+            <strong>Fruit Orchards:</strong> Tree spacing, pruning, and
+            irrigation.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Season Type Modal -->
+    <div
+      id="seasonTypeModal"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white w-full max-w-xl p-6 rounded-lg shadow-lg relative">
+        <button
+          onclick="toggleModal2(false)"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+        >
+          &times;
+        </button>
+        <h3 class="text-2xl font-semibold text-[#328E6E] mb-4">
+          Farming Guides by Season Type
+        </h3>
+        <ul class="space-y-3 text-gray-700 list-disc pl-6">
+          <li>
+            <strong>Wheat Farming:</strong> From seed selection to harvest.
+          </li>
+          <li>
+            <strong>Rice Cultivation:</strong> Tips for water management and
+            pest control.
+          </li>
+          <li>
+            <strong>Maize Production:</strong> Soil preparation and yield
+            optimization.
+          </li>
+          <li>
+            <strong>Vegetable Farming:</strong> Seasonal planting tips and care.
+          </li>
+          <li>
+            <strong>Fruit Orchards:</strong> Tree spacing, pruning, and
+            irrigation.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Method Type Modal -->
+    <div
+      id="methodTypeModal"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white w-full max-w-xl p-6 rounded-lg shadow-lg relative">
+        <button
+          onclick="toggleModal3(false)"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+        >
+          &times;
+        </button>
+        <h3 class="text-2xl font-semibold text-[#328E6E] mb-4">
+          Farming Guides by Method Type
+        </h3>
+        <ul class="space-y-3 text-gray-700 list-disc pl-6">
+          <li>
+            <strong>Wheat Farming:</strong> From seed selection to harvest.
+          </li>
+          <li>
+            <strong>Rice Cultivation:</strong> Tips for water management and
+            pest control.
+          </li>
+          <li>
+            <strong>Maize Production:</strong> Soil preparation and yield
+            optimization.
+          </li>
+          <li>
+            <strong>Vegetable Farming:</strong> Seasonal planting tips and care.
+          </li>
+          <li>
+            <strong>Fruit Orchards:</strong> Tree spacing, pruning, and
+            irrigation.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+<!-- Footer -->
+<footer class="bg-[#328E6E] text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 AgroTech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pest Control Strategies |  Agro-web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+     <!-- Header -->
+<header class="bg-[#328E6E] text-white">
+  <nav class="container mx-auto py-5 px-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="text-3xl font-bold">Agro-web</a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-8 font-medium">
+      <li><a href="/" class="hover:text-gray-200">Home</a></li>
+      <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
+      <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
+      <li><a href="/pest-control.html" class="hover:text-gray-200">Pest Control</a></li>
+      <li><a href="/contact.html" class="hover:text-gray-200">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger Button -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu"
+       class="md:hidden bg-[#328E6E] px-4 py-2 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+    <ul class="flex flex-col gap-3 font-medium">
+      <li><a href="/" class="mobile-link hover:text-gray-200">Home</a></li>
+      <li><a href="/guide.html" class="mobile-link hover:text-gray-200">Guide</a></li>
+      <li><a href="/crops.html" class="mobile-link hover:text-gray-200">Crops</a></li>
+      <li><a href="/pest-control.html" class="mobile-link hover:text-gray-200">Pest Control</a></li>
+      <li><a href="/contact.html" class="mobile-link hover:text-gray-200">Contact</a></li>
+    </ul>
+  </div>
+</header>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const links = document.querySelectorAll(".mobile-link");
+    
+        let isOpen = false;
+    
+        menuToggle.addEventListener("click", () => {
+          isOpen = !isOpen;
+          mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + "px" : "0px";
+        });
+    
+        links.forEach(link => {
+          link.addEventListener("click", () => {
+            isOpen = false;
+            mobileMenu.style.maxHeight = "0px";
+          });
+        });
+      });
+    </script>
+
+    <section class="relative h-[70vh] flex items-center justify-center text-center text-white">
+      <img src="./assests/fam.jpg" 
+           alt="Crop field background" 
+           class="absolute inset-0 w-full h-full object-cover opacity-70 z-[-1]" />
+      <div class="bg-black/50 p-8 rounded shadow-md backdrop-blur-sm">
+        <h1 class="text-5xl font-extrabold mb-4 text-green-600">Explore Pest Control Strategies</h1>
+        <p class="text-lg max-w-2xl mx-auto">
+          Learn how to identify, prevent, and manage common crop pests using sustainable and effective pest control methods — including biological, organic, and integrated approaches.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto py-16 px-4">
+     
+ 
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Strategy 1 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img
+            src="https://2genesis.com/wp-content/uploads/2019/09/DbDbD3LWkAA9gnt.jpg"
+            alt="Integrated Pest Management"
+            class="w-full h-48 object-cover rounded mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-4">
+            1. Integrated Pest Management (IPM)
+          </h3>
+          <p>
+            IPM combines biological, cultural, mechanical, and chemical tools in
+            a way that minimizes risks to health and the environment.
+          </p>
+        </div>
+
+        <!-- Strategy 2 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img
+            src="https://bioprotectionportal.com/wp-content/uploads/2024/07/biological-control-infog-1024x576.png?x87365"
+            alt="Biological Control"
+            class="w-full h-48 object-cover rounded mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-4">2. Biological Control</h3>
+          <p>
+            Use of natural predators like ladybugs or parasitic wasps to manage
+            harmful insect populations.
+          </p>
+        </div>
+
+        <!-- Strategy 3 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE-mMAPZAQ0mNYyQ4p_cvcuu4XNAyn6ULsyQ&s"
+            alt="Organic Pesticides"
+            class="w-full h-48 object-cover rounded mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-4">3. Organic Pesticides</h3>
+          <p>
+            Utilize environmentally friendly pesticides derived from natural
+            sources like neem oil, garlic spray, or pyrethrin.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAEnTO2giI-5W2snyCqaV9n3iz5pekigx0mA&s"
+            alt="Crop Rotation"
+            class="w-full h-48 object-cover rounded mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-4">4. Crop Rotation</h3>
+          <p>
+            Changing crop types seasonally to prevent pest adaptation and reduce
+            pest population buildup.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer class="bg-[#328E6E] text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 AgroTech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="index.js"></script>
+</html>

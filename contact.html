@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Agro-web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <header class="bg-[#328E6E] text-white">
+      <nav
+        class="container mx-auto py-5 px-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="text-3xl font-bold">Agro-web</a>
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-8 font-medium">
+          <li><a href="/" class="hover:text-gray-200">Home</a></li>
+          <li><a href="/guide.html" class="hover:text-gray-200">Guide</a></li>
+          <li><a href="/crops.html" class="hover:text-gray-200">Crops</a></li>
+          <li>
+            <a href="/pest-control.html" class="hover:text-gray-200"
+              >Pest Control</a
+            >
+          </li>
+          <li>
+            <a href="/contact.html" class="hover:text-gray-200">Contact</a>
+          </li>
+        </ul>
+        <!-- Hamburger Button -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="container mx-auto py-16">
+      <h2 class="text-4xl font-bold text-center mb-8 text-[#328E6E]">
+        Contact Us
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Contact Form -->
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-bold text-center mb-6 sub-section-title">
+            Submit Your Inquiry
+          </h3>
+          <form id="contact-form" novalidate>
+            <div class="space-y-4">
+              <fieldset class="flex flex-col">
+                <label for="name" class="text-gray-700">Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="border border-gray-300 p-3 rounded-lg"
+                  required
+                />
+              </fieldset>
+              <fieldset class="flex flex-col">
+                <label for="email" class="text-gray-700">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="border border-gray-300 p-3 rounded-lg"
+                  required
+                />
+              </fieldset>
+              <fieldset class="flex flex-col">
+                <label for="subject" class="text-gray-700">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  class="border border-gray-300 p-3 rounded-lg"
+                  required
+                />
+              </fieldset>
+              <fieldset class="flex flex-col">
+                <label for="message" class="text-gray-700">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="5"
+                  class="border border-gray-300 p-3 rounded-lg"
+                  required
+                ></textarea>
+              </fieldset>
+              <fieldset class="flex flex-col">
+                <label for="attachment" class="text-gray-700"
+                  >Optional Attachment (Max 2MB)</label
+                >
+                <input
+                  type="file"
+                  name="attachment"
+                  id="attachment"
+                  class="border border-gray-300 p-3 rounded-lg"
+                  accept=".jpg,.png,.pdf,.doc,.docx"
+                />
+              </fieldset>
+              <fieldset class="flex justify-center">
+                <button
+                  type="submit"
+                  class="bg-[#328E6E] text-white px-6 py-3 rounded-lg hover:bg-[#276b51]"
+                >
+                  Submit Inquiry
+                </button>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+
+        <!-- Direct Communication Info -->
+        <div
+          class="bg-[#f9fafb] p-8 rounded-lg shadow-lg text-center flex justify-center items-center"
+        >
+          <div>
+            <h3 class="text-2xl font-bold text-center mb-6 sub-section-title">
+              Direct Communication
+            </h3>
+            <p class="text-lg text-gray-700 mb-4 max-w-[80%] mx-auto">
+              For more immediate assistance, feel free to reach out to our
+              agricultural advisors
+            </p>
+            <div class="flex flex-col items-center gap-4 sub-section-title">
+              <div class="flex items-center gap-4">
+                <span class="font-semibold text-lg">Phone:</span>
+                <span class="text-gray-700">(123) 456-7890</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="font-semibold text-lg">Email:</span>
+                <span class="text-gray-700">advisor@agroweb.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Leaflet Map for Head Office Location -->
+    <section class="container mx-auto py-16">
+      <h2 class="text-4xl font-bold text-center mb-8 text-[#328E6E]">
+        Head Office Location
+      </h2>
+      <div class="w-full h-96 mb-8" id="head-office-map"></div>
+    </section>
+
+    <!-- Add Leaflet Map for Agricultural Location -->
+    <section class="container mx-auto py-16">
+      <h2 class="text-4xl font-bold text-center mb-8 text-[#328E6E]">
+        Agricultural Location
+      </h2>
+      <div class="w-full h-96" id="agri-map"></div>
+    </section>
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        <script>
+          // Head Office Map Setup
+          var headOfficeMap = L.map("head-office-map").setView(
+            [23.807216, 90.36877],
+            13
+          ); 
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(headOfficeMap);
+
+          L.marker([23.807216, 90.36877])
+            .addTo(headOfficeMap)
+            .bindPopup(
+              "<b>Agro-web Head Office</b><br>1234 Mirpur 10, Farming City, Dhaka"
+            )
+            .openPopup();
+
+          // Agricultural Location Map Setup
+          var agriMap = L.map("agri-map").setView([23.760524, 90.388989], 10); 
+
+        //   let zoom = 5;
+          L.tileLayer(`https://{s}.tile.openstreetmap.org/10/{x}/{y}.png`, {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(agriMap);
+
+          // Multiple Agricultural Locations
+          var locations = [
+            {
+              name: "Agricultural Research Center",
+              coordinates: [23.760524, 90.388989],
+              description: "Farm Research Zone",
+            },
+            {
+              name: "Crop Development Hub",
+              coordinates: [23.750524, 90.400989],
+              description: "Crop Innovation and Development Facility",
+            },
+            {
+              name: "Farmers' Cooperative",
+              coordinates: [23.770524, 90.380989],
+              description: "Local Farmers' Gathering and Resource Center",
+            },
+            {
+              name: "Soil Testing Lab",
+              coordinates: [23.760524, 90.370989],
+              description: "Soil Quality Research and Testing Services",
+            },
+            {
+              name: "Water Irrigation Station",
+              coordinates: [23.740524, 90.390989],
+              description: "Water Resource Management for Crops",
+            },
+            {
+              name: "Water Irrigation Lab",
+              coordinates: [23.728783,90.332678],
+              description: "Water Resource Management for Crops",
+            },
+            {
+              name: "Soil Irrigation Lab",
+              coordinates: [23.84722,90.259208],
+              description: "Water Resource Management for Crops",
+            },
+            {
+              name: "Water Irrigation Lab ||",
+              coordinates: [23.728783,90.259208],
+              description: "Water Resource Management for Crops",
+            },
+          ];
+
+          // Adding markers for each location
+          locations.forEach(function (location) {
+            L.marker(location.coordinates)
+              .addTo(agriMap)
+              .bindPopup(
+                "<b>" + location.name + "</b><br>" + location.description
+              )
+              .openPopup();
+          });
+        </script>
+      </body>
+
+      <!-- Footer -->
+    </html>
+  </body>
+
+  <!-- Footer -->
+  <footer class="bg-[#328E6E] text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Agro-web. All rights reserved.</p>
+    </div>
+  </footer>
+</html>
